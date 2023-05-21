@@ -95,6 +95,20 @@ export const CalendarModal = () => {
         closeDateModal();
         setFormSubmitted(!formSubmitted);
         
+        if (activeEvent._id) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Evento actualizado',
+                text: 'Evento actualizado con éxito',
+            });
+        }
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Evento guardado',
+            text: 'Evento agregado con éxito',
+        });
+        
     }
 
     return (
@@ -106,7 +120,7 @@ export const CalendarModal = () => {
             overlayClassName="modal-fondo"
             closeTimeoutMS={200}
         >
-            <h1> Nuevo evento </h1>
+            <h1>{activeEvent?._id ? 'Actualizar evento' : 'Nuevo evento'}  </h1>
             <hr />
 
             <form 
@@ -173,8 +187,8 @@ export const CalendarModal = () => {
                     type="submit"
                     className="btn btn-outline-primary btn-block"
                 >
-                    <i className="far fa-save"></i>
-                    <span> Guardar</span>
+                    <i className="far fa-save me-3"></i>
+                    <span>{activeEvent?._id ? 'Actualizar' : 'Guardar'}</span>
                 </button>
 
             </form>

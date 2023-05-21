@@ -1,4 +1,5 @@
 import { useCalendarStore } from "../../hooks";
+import Swal from 'sweetalert2'
 
 export const FabDelete = () => {
 
@@ -7,6 +8,12 @@ export const FabDelete = () => {
 
     const onDeleteClick = () => {
         startDeletingEvent();
+        
+        Swal.fire({
+            icon: 'success',
+            title: 'Evento eliminado',
+            text: 'Evento removido con éxito',
+        });
     }
 
     return (
