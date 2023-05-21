@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { useForm } from "../../../hooks/useForm";
+import { useForm } from "../../../hooks/";
 
 import '../../styles/Auth.css';
 import { AuthLayout } from "../../../layouts/AuthLayout";
