@@ -1,4 +1,5 @@
 export * from './CalendarEvent';
 export * from './Navbar';
 export * from './CalendarModal';
-export * from './Fab';
+export * from './FabAddNew';
+export * from './FabDelete';
