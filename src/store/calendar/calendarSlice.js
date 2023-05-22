@@ -17,13 +17,14 @@ export const calendarSlice = createSlice({
             state.events.push(payload);
             state.activeEvent = null;
         },
-        onUpdateEvent: (state, { payload }) => {
+        onUpdateEvent: ( state, { payload } ) => {
             state.events = state.events.map( event => {
-                if (event._id === payload._id) {
+                if ( event.id === payload.id ) {
                     return payload;
-                } 
+                }
+
                 return event;
-            })
+            });
         },
         onDeleteEvent: (state) => {
             if ( state.activeEvent ){
