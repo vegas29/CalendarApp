@@ -1,12 +1,13 @@
+import { useSelector } from "react-redux";
 import { useCalendarStore } from "../../hooks";
 import Swal from 'sweetalert2'
 
 export const FabDelete = () => {
 
-
     const { startDeletingEvent, hasEventSelected } = useCalendarStore();
 
     const onDeleteClick = () => {
+
         startDeletingEvent();
         
         Swal.fire({
