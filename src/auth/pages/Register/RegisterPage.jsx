@@ -23,6 +23,11 @@ export const RegisterPage = () => {
 
     const handleRegister = (e) =>{
         e.preventDefault();
+    
+        if([name, email, password, rpassword].includes('')) {
+            Swal.fire('Hay campos vacios', 'Por favor complete todos los campos', 'error');
+            return;
+        }
         
         if (password !== rpassword) {
             Swal.fire('Error en el registro', 'Las contraseñas no son iguales', 'error');
