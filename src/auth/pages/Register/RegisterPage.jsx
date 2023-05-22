@@ -1,26 +1,42 @@
 import { Link } from "react-router-dom";
 
-import { useForm } from "../../../hooks/";
+import { useAuthStore, useForm } from "../../../hooks/";
 import { Modal, ModalHeader, ModalBody, Spinner } from "reactstrap";
 
 import '../../styles/Auth.css';
 import { AuthLayout } from "../../../layouts/AuthLayout";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 export const RegisterPage = () => {
+
+    const { startRegister, errorMessage } = useAuthStore();
 
     const [formValues, handleInputChange] = useForm({
         name: '',
         email: '',
         password: '',
         rpassword: ''
-    })
+    });
 
     const {name, email, password, rpassword} = formValues;
 
     const handleRegister = (e) =>{
         e.preventDefault();
-        console.log(email, password)
+        
+        if (password !== rpassword) {
+            Swal.fire('Error en el registro', 'Las contraseñas no son iguales', 'error');
+            return;
+        }
+
+        startRegister({name, email, password});
     }
+
+    useEffect(() => {
+        if (errorMessage !== undefined) {
+            Swal.fire('Error en el registro', errorMessage, 'error');
+        }
+    }, [errorMessage]);
     
     return (
         <AuthLayout>
@@ -79,7 +95,7 @@ export const RegisterPage = () => {
                 <Link 
                     to="/auth/login"
                 >
-                    Sign in
+                    ¿Do you have a account?
                 </Link>
             </form>
         </AuthLayout>

@@ -20,7 +20,7 @@ const {email, password} = formValues;
 
     const handleLogin = (e) =>{
         e.preventDefault();
-        startLogin({email, password})
+        startLogin({email, password});
     }
 
     useEffect(() => {
