@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 
-import { useForm } from "../../../hooks/";
+import { useAuthStore, useForm } from "../../../hooks/";
 
 import '../../styles/Auth.css';
 import { AuthLayout } from "../../../layouts/AuthLayout";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 export const LoginPage = () => {
+
+    const { startLogin, errorMessage } = useAuthStore();
 
     const [formValues, handleInputChange] = useForm({
         email: '',
@@ -16,8 +20,14 @@ const {email, password} = formValues;
 
     const handleLogin = (e) =>{
         e.preventDefault();
-        console.log(email, password)
+        startLogin({email, password})
     }
+
+    useEffect(() => {
+        if (errorMessage !== undefined) {
+            Swal.fire('Error en la autenticación', errorMessage, 'error');
+        }
+    }, [errorMessage]);
     
     return (
         <AuthLayout>
