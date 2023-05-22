@@ -4,6 +4,7 @@ import { LoginPage } from "../auth";
 import { CalendarPage } from "../calendar/pages/CalendarPage";
 import { RegisterPage } from "../auth/pages/Register/RegisterPage";
 import { useAuthStore } from "../hooks";
+import { Loader } from "../ui/components/Loader";
 
 export const AppRouter = () => {
 
@@ -15,7 +16,7 @@ export const AppRouter = () => {
 
     if ( status === 'checking') {
         return (
-            <h3>Cargando...</h3>
+            <Loader />
         )
     }
 
