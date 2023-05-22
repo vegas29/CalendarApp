@@ -44,6 +44,11 @@ export const useAuthStore = () => {
         }
     }
 
+    const startLogout = () => {
+        localStorage.clear();
+        dispatch(onLogout());
+    }
+
     const checkAuthToken = async() => {
 
         const token = localStorage.getItem('token');
@@ -60,6 +65,7 @@ export const useAuthStore = () => {
             dispatch( onLogout() );
         }
     }
+    
 
 
     return {
@@ -71,6 +77,7 @@ export const useAuthStore = () => {
         //Methods
         startLogin,
         startRegister,
-        checkAuthToken
+        checkAuthToken,
+        startLogout
     }
 }
