@@ -5,7 +5,7 @@ import { RegisterPage } from "../auth/pages/Register/RegisterPage";
 
 export const AppRouter = () => {
 
-    const authStatus = "not-aauthenticated" //'authenticated'; //'not-authenticated';
+    const authStatus = "not-authenticated" //'authenticated'; //'not-authenticated';
 
     return (
         <Routes>

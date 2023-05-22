@@ -9,13 +9,15 @@ import { AuthLayout } from "../../../layouts/AuthLayout";
 export const RegisterPage = () => {
 
     const [formValues, handleInputChange] = useForm({
+        name: '',
         email: '',
-        password: ''
+        password: '',
+        rpassword: ''
     })
 
-    const {email, password} = formValues;
+    const {name, email, password, rpassword} = formValues;
 
-    const handleLogin = (e) =>{
+    const handleRegister = (e) =>{
         e.preventDefault();
         console.log(email, password)
     }
@@ -26,7 +28,7 @@ export const RegisterPage = () => {
 
             <form
                 className="animate__animated animate__fadeIn animate__faster"
-                onSubmit={handleLogin}
+                onSubmit={handleRegister}
             >
 
                 <input
@@ -35,7 +37,7 @@ export const RegisterPage = () => {
                     name="name"
                     className="auth__input"
                     autoComplete="off"
-                    value={email}
+                    value={name}
                     onChange={handleInputChange}
                 />
 
@@ -63,7 +65,7 @@ export const RegisterPage = () => {
                     placeholder="Repeat password"
                     name="rpassword"
                     className="auth__input"
-                    value={password}
+                    value={rpassword}
                     onChange={handleInputChange}
                 />
 

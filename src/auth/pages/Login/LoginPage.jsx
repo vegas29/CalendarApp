@@ -12,7 +12,7 @@ export const LoginPage = () => {
         password: ''
     })
 
-    const {email, password} = formValues;
+const {email, password} = formValues;
 
     const handleLogin = (e) =>{
         e.preventDefault();
